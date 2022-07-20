@@ -1,0 +1,12 @@
+.navbar {
+    color: pink;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+/* .MuiPaper-root{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+} */

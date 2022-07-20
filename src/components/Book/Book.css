@@ -1,0 +1,79 @@
+.ul-1 {
+    /* width: 100vw;
+    height: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.ul-2 {
+    padding: 10px;
+    width: 200px;
+    max-width: 200px;
+    max-height: 450px;
+}
+
+.card {
+    /* padding: 1rem;
+    width: 100%;
+    height: 100%;
+    align-items: center; 
+    background-color: white;*/
+    /* box-shadow: 5px 5px 10px #ccc;  */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    height: 100%;
+    margin: 2em 2em;
+    background-color: white;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
+}
+
+.card > img{
+    /* width: 100%;
+    height: 50%; */
+    width: 70%;
+    height: 47%;
+    margin: 1em 1em;
+}
+
+.card h3 {
+    /* margin: 0;
+    padding: 5px; */
+    font-weight: black;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 13%;
+}
+
+.card h5 {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-top: 0.5em;
+    line-height: 1.3;
+    font-size: 14px;
+    margin-left: 5px; 
+    margin-right: 5px;
+    height: 14%;
+    text-align: center;
+}
+
+.card h4 {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-top: 0.7em;
+    line-height: 1.3;
+    font-size: 16px;
+}
