@@ -3,18 +3,25 @@ import Header from "./components/Header/Header"
 import Books from "./components/Book/Books"
 import Search from "./components/Search/Search"
 import Home from "./components/Home"
-import {Switch, Route, Routes} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route, Routes} from 'react-router-dom'
 import React from 'react'
 
 
 function App() {
   return (
   <div className='app'>
-    {/* <React.Fragment> */}
-      
+    
       <header>
         <Header />
       </header>
+    
+      {/* <Routes> */}
+        {/* <Route
+          path="/home"
+          component={Home}
+        /> */}
+      {/* </Routes> */}
+       
       {/* <main>
         <Routes>
           <Route path="/home" component={<Home/>} exact/>
@@ -27,8 +34,15 @@ function App() {
       
       <Search/>
       {/* <Books/> */}
+    
+    {/* <React.Fragment> */}
+      
+      
     </div>
   );
 }
 
 export default App;
+
+
+//TODO loading page

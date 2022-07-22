@@ -7,8 +7,7 @@ import Book from "../Book/Book";
 import Books from "../Book/Books";
 import AppPagination from "../Pagination";
 import './Search.css';
-import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
+import { useNavigate } from 'react-router-dom';
 
 const URL = "http://localhost:5000/api/";
 
@@ -18,12 +17,13 @@ const Search = () => {
   const [searchValue, setSearchValue] = useState("");
   const [pageNumber, setPageNumber] = useState(1);
   const [numberOfPages, setNumberOfPages] = useState(0);
-  const pages = new Array(numberOfPages).fill(null).map((v, i) => i);
-  const[query, setQuery] = useState('react');
+  const history = useNavigate();
 
   const searchBooks = async () => {
     await axios.get(URL + "search-by-title", { params: { title: searchValue } })
-    .then((res) => setBooks(res.data));
+    .then((res) => {
+      console.log(res.data);
+      setBooks(res.data)});
   };
 
   const fetchHandler = () => {
@@ -37,13 +37,12 @@ const Search = () => {
 
   const handleSearch = e => {
     e.preventDefault();
-    
-    // this.inputVal = e.target.value;
-    if(e.target.value === '') {
-      console.log("emp");
-      
-    } else {
+    // searchBooks(e.target.value);
+
+    if (searchValue.trim()) {
       searchBooks(e.target.value);
+    } else {
+      history('/?page=1');
     }
   }
 
@@ -54,14 +53,6 @@ const Search = () => {
   useEffect(() => {
     fetchHandler()
   }, [pageNumber]);
-
-  const gotoPrevious = () => {
-    setPageNumber(Math.max(0, pageNumber - 1));
-  };
-
-  const gotoNext = () => {
-    setPageNumber(Math.min(numberOfPages - 1, pageNumber + 1));
-  };
 
   return (
     <div className='app'>
@@ -103,22 +94,7 @@ const Search = () => {
 
       <div className='btns'>
         <AppPagination setPageNumber={setPageNumber} numberOfPages={numberOfPages} page={pageNumber}/>
-        
-        {/* <button onClick={gotoPrevious}>Previous</button> */}
-        {/* {pages.map((pageIndex) => ( */}
-          {/* <Stack spacing={2}> */}
-            
-            {/* <Pagination onChange={()=>setPageNumber(pageNumber)} count={numberOfPages} color="primary" /> */}
-          {/* </Stack> */}
-          {/* // <button key={pageIndex} onClick={() => setPageNumber(pageIndex)}>
-          //   {pageIndex + 1}
-          // </button> */}
-        {/* ))} */}
-        {/* <button onClick={gotoNext}>Next</button> */}
-        
       </div>
-      
-      
     </div>
   );
 }
