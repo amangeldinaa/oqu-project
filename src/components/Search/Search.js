@@ -20,30 +20,37 @@ const Search = () => {
   const history = useNavigate();
 
   const searchBooks = async () => {
-    await axios.get(URL + "search-by-title", { params: { title: searchValue } })
+    console.log("searchValue")   
+     console.log(searchValue)
+    await axios.get(URL + "search-by-title", { params: { title: searchValue.trim() } })
     .then((res) => {
       console.log(res.data);
       setBooks(res.data)});
+      
+      setNumberOfPages(0);
   };
 
   const fetchHandler = () => {
-    axios.get(`http://localhost:5000/api/?page=${pageNumber-1}`).then((res) => res.data).then((res) => {
+    axios.get(`http://localhost:5000/api/?page=${pageNumber-1}`, { params: { title: searchValue.trim() } })
+    .then((res) => res.data).then((res) => {
+      console.log(res.books)
       console.log(res.totalPages)
       const newBooks = res.books.slice(0, 30)
-      setBooks([...newBooks])
+      setBooks(res.books)
       setNumberOfPages(res.totalPages);
     });
   };
 
   const handleSearch = e => {
     e.preventDefault();
+    fetchHandler();
     // searchBooks(e.target.value);
-
-    if (searchValue.trim()) {
-      searchBooks(e.target.value);
-    } else {
-      history('/?page=1');
-    }
+    // searchBooks();
+    // if (searchValue.trim()) {
+    //   searchBooks();
+    // } else {
+    //   history('/');
+    // }
   }
 
   const handleChange = e => {
@@ -63,7 +70,7 @@ const Search = () => {
         justifyContent: 'center',
         marginTop: '2rem'
       }}>
-        <form action="/search">
+        <form >
           <TextField
             id="search-bar"
             className="text"
@@ -74,7 +81,7 @@ const Search = () => {
             placeholder="Искать..."
             size="small"
           />
-          <IconButton aria-label="search" onClick={handleSearch} type="submit">
+          <IconButton aria-label="search" onClick={handleSearch} type="Submit">
             <SearchIcon style={{ fill: "blue" }} />
           </IconButton>
         </form>
@@ -92,9 +99,13 @@ const Search = () => {
         </ul>
       </div>
 
+      {/* Pagination */}
+      {console.log(numberOfPages)}
+      {console.log("numberOfPages")}
+      {numberOfPages>0 &&(
       <div className='btns'>
         <AppPagination setPageNumber={setPageNumber} numberOfPages={numberOfPages} page={pageNumber}/>
-      </div>
+      </div>)}
     </div>
   );
 }

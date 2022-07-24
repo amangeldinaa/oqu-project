@@ -9,36 +9,20 @@ import React from 'react'
 
 function App() {
   return (
-  <div className='app'>
-    
+  // <div className='app'>
+    <React.Fragment>
       <header>
         <Header />
       </header>
-    
-      {/* <Routes> */}
-        {/* <Route
-          path="/home"
-          component={Home}
-        /> */}
-      {/* </Routes> */}
-       
-      {/* <main>
+      <main>
         <Routes>
-          <Route path="/home" component={<Home/>} exact/>
-          <Route path="/allbooks" component={<Search/>} exact/>
+        <Route path="/" element={<Search/>} exact/>
+          <Route path="/home" element={<Home/>} exact/>
+          <Route path="/allbooks" element={<Search/>} exact/>
         </Routes>
       </main>
-    </React.Fragment> */}
-    
-      
-      
-      <Search/>
-      {/* <Books/> */}
-    
-    {/* <React.Fragment> */}
-      
-      
-    </div>
+      {/* <Search/> */}
+    </React.Fragment>
   );
 }
 
