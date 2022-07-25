@@ -1,13 +1,14 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
+import ClearIcon from "@mui/icons-material/Clear";
 import TextField from "@mui/material/TextField";
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import axios from 'axios';
 import Book from "../Book/Book";
-import Books from "../Book/Books";
 import AppPagination from "../Pagination";
 import './Search.css';
-import { useNavigate } from 'react-router-dom';
 
 const URL = "http://localhost:5000/api/";
 
@@ -17,14 +18,10 @@ const Search = () => {
   const [searchValue, setSearchValue] = useState("");
   const [pageNumber, setPageNumber] = useState(1);
   const [numberOfPages, setNumberOfPages] = useState(0);
-  const history = useNavigate();
 
   const searchBooks = async () => {
-    console.log("searchValue")   
-     console.log(searchValue)
     await axios.get(URL + "search-by-title", { params: { title: searchValue.trim() } })
     .then((res) => {
-      console.log(res.data);
       setBooks(res.data)});
       
       setNumberOfPages(0);
@@ -33,10 +30,8 @@ const Search = () => {
   const fetchHandler = () => {
     axios.get(`http://localhost:5000/api/?page=${pageNumber-1}`, { params: { title: searchValue.trim() } })
     .then((res) => res.data).then((res) => {
-      console.log(res.books)
-      console.log(res.totalPages)
-      const newBooks = res.books.slice(0, 30)
-      setBooks(res.books)
+      const newBooks = res.books
+      setBooks(newBooks)
       setNumberOfPages(res.totalPages);
     });
   };
@@ -44,18 +39,36 @@ const Search = () => {
   const handleSearch = e => {
     e.preventDefault();
     fetchHandler();
-    // searchBooks(e.target.value);
-    // searchBooks();
-    // if (searchValue.trim()) {
-    //   searchBooks();
-    // } else {
-    //   history('/');
-    // }
   }
 
-  const handleChange = e => {
-    setSearchValue(e.target.value)
+  const handleClear = () => {
+    setSearchValue('');
   }
+
+  const handleCheckFlip = () => {
+    console.log("here")
+  }
+
+  const handleCheckMeloman = () => {
+    console.log("here")
+  }
+
+  useEffect(() => {
+    console.log("searchValue", searchValue);
+    if (searchValue) {
+      fetchHandler()
+    }
+    // debounce(fetchHandler(), 1000);
+    // setInterval(fetchHandler(), 1000);
+    // if(!searchValue) {
+    //   setPageNumber(1);
+    // }
+    // if (searchValue) {
+    //   const Debounce = setTimeout(() => {
+    //     fetchHandler();
+    //   }, 1000);
+    // }
+  }, [searchValue]);
 
   useEffect(() => {
     fetchHandler()
@@ -63,6 +76,8 @@ const Search = () => {
 
   return (
     <div className='app'>
+      <FormControlLabel control={<Checkbox defaultChecked onChange={handleCheckFlip}/>} label="Flip" />
+      <FormControlLabel control={<Checkbox defaultChecked onChange={handleCheckMeloman}/>} label="Meloman" />
 
       {/* Search items */}
       <div style={{
@@ -70,18 +85,29 @@ const Search = () => {
         justifyContent: 'center',
         marginTop: '2rem'
       }}>
+        
         <form >
           <TextField
             id="search-bar"
             className="text"
             value={searchValue}
-            onChange={handleChange}
+            onChange={(e) => setSearchValue(e.target.value)}
             label="Введи название книги"
             variant="outlined"
             placeholder="Искать..."
             size="small"
+            InputProps={{endAdornment: 
+          //   <Button onClick={handleClear} className="materialBtn">
+          //       	<ClearIcon fontSize="small" />
+          // </Button>
+          
+            <IconButton sx={{visibility: searchValue? "visible": "hidden"}} aria-label="search" onClick={handleClear} type="Submit">
+              <ClearIcon style={{ fill: "blue" }} />
+            </IconButton>}}
           />
-          <IconButton aria-label="search" onClick={handleSearch} type="Submit">
+          
+          
+          <IconButton disabled="true" aria-label="search" onClick={handleSearch} type="Submit">
             <SearchIcon style={{ fill: "blue" }} />
           </IconButton>
         </form>
@@ -100,8 +126,6 @@ const Search = () => {
       </div>
 
       {/* Pagination */}
-      {console.log(numberOfPages)}
-      {console.log("numberOfPages")}
       {numberOfPages>0 &&(
       <div className='btns'>
         <AppPagination setPageNumber={setPageNumber} numberOfPages={numberOfPages} page={pageNumber}/>
