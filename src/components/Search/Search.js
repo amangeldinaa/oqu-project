@@ -39,7 +39,7 @@ const Search = () => {
 
   const fetchHandler = () => {
     axios.get(`http://localhost:5000/api/?page=${pageNumber-1}`, 
-    { params: { title: searchValue.trim(), store: stores[0] }})
+    { params: { title: searchValue.trim(), store: `${stores[0]};${stores[1]};${stores[2]}` }})
     .then((res) => res.data).then((res) => {
       const newBooks = res.books
       setBooks(newBooks)
@@ -99,7 +99,7 @@ const Search = () => {
   } 
 
   useEffect(() => {
-
+    console.log("stores param: ",`${stores[0]};${stores[1]};${stores[2]}`)
     fetchHandler()
   }, [stores]);
  
