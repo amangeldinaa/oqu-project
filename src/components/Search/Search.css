@@ -1,6 +1,39 @@
-.btns {
+.app {
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.search {
     display: flex;
     justify-content: center;
+    margin-top: 2rem;
+    width: 100%;
+    margin-bottom: 0ю5rem;
+}
+
+.pagination {
+    width: 100%;
+    margin-top: 3.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.left-cont {
+    width: 7%;
+    height: 100%;
+    float: left; 
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.5rem;
     margin-top: 2.5rem;
-    margin-bottom: 2.5rem;
+    /* border: 1px solid black; */
+}
+
+.right-cont {
+    width: 92%; 
+    float: right;
+    align-items: flex-start;
 }

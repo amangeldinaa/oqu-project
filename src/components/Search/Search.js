@@ -12,23 +12,34 @@ import './Search.css';
 
 const URL = "http://localhost:5000/api/";
 
+const storeOptions = [
+  {
+    "id": 1,
+    "name": "flip"
+  },
+  {
+    "id": 2,
+    "name": "meloman"
+  },
+  {
+    "id": 3,
+    "name": "wildberries"
+  }
+]
+
 const Search = () => {
 
   const [books, setBooks] = useState();
   const [searchValue, setSearchValue] = useState("");
   const [pageNumber, setPageNumber] = useState(1);
   const [numberOfPages, setNumberOfPages] = useState(0);
-
-  const searchBooks = async () => {
-    await axios.get(URL + "search-by-title", { params: { title: searchValue.trim() } })
-    .then((res) => {
-      setBooks(res.data)});
-      
-      setNumberOfPages(0);
-  };
+  const [stores, setStores] = useState([]);
+  const [checked, setChecked] = useState(false);
+  const [checkedM, setCheckedM] = useState(false);
 
   const fetchHandler = () => {
-    axios.get(`http://localhost:5000/api/?page=${pageNumber-1}`, { params: { title: searchValue.trim() } })
+    axios.get(`http://localhost:5000/api/?page=${pageNumber-1}`, 
+    { params: { title: searchValue.trim(), store: stores[0] }})
     .then((res) => res.data).then((res) => {
       const newBooks = res.books
       setBooks(newBooks)
@@ -45,29 +56,58 @@ const Search = () => {
     setSearchValue('');
   }
 
-  const handleCheckFlip = () => {
-    console.log("here")
+  // const handleCheckFlip = (e) => {
+  //   setCheckedF(e.target.checked);
+  //   if(checkedF) {
+  //     setStore("meloman");
+  //   }
+    
+  //   console.log(store);
+  //   // fetchHandler();
+  // }
+
+  const handleCheckMeloman = (e) => {
+    console.log(e.target.checked);
+    setCheckedM(e.target.checked);
+    if(checkedM) {
+      setStores("flip");
+    }
+    
+    // console.log(store);
+    // fetchHandler();
   }
 
-  const handleCheckMeloman = () => {
-    console.log("here")
-  }
+  const handleCheckbox = (e) => {
+    // console.log( e.target.value);
+    console.log(stores)
+    const currentStoreChecked = e.target.value;
+    console.log(currentStoreChecked);
+    const allStoresChecked = [...stores];
+    const indexFound = allStoresChecked.indexOf(currentStoreChecked);
+  
+    let updatedStores;
+    if(indexFound === -1) {
+      updatedStores = [...stores, currentStoreChecked];
+      setStores(updatedStores);
+    } else {
+      updatedStores = [...stores];
+      updatedStores.splice(indexFound, 1);
+      setStores(updatedStores);
+    }
 
+    // fetchHandler()
+  } 
+
+  useEffect(() => {
+
+    fetchHandler()
+  }, [stores]);
+ 
   useEffect(() => {
     console.log("searchValue", searchValue);
     if (searchValue) {
       fetchHandler()
     }
-    // debounce(fetchHandler(), 1000);
-    // setInterval(fetchHandler(), 1000);
-    // if(!searchValue) {
-    //   setPageNumber(1);
-    // }
-    // if (searchValue) {
-    //   const Debounce = setTimeout(() => {
-    //     fetchHandler();
-    //   }, 1000);
-    // }
   }, [searchValue]);
 
   useEffect(() => {
@@ -76,16 +116,8 @@ const Search = () => {
 
   return (
     <div className='app'>
-      <FormControlLabel control={<Checkbox defaultChecked onChange={handleCheckFlip}/>} label="Flip" />
-      <FormControlLabel control={<Checkbox defaultChecked onChange={handleCheckMeloman}/>} label="Meloman" />
-
       {/* Search items */}
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        marginTop: '2rem'
-      }}>
-        
+      <div className="search">
         <form >
           <TextField
             id="search-bar"
@@ -97,24 +129,48 @@ const Search = () => {
             placeholder="Искать..."
             size="small"
             InputProps={{endAdornment: 
-          //   <Button onClick={handleClear} className="materialBtn">
-          //       	<ClearIcon fontSize="small" />
-          // </Button>
-          
             <IconButton sx={{visibility: searchValue? "visible": "hidden"}} aria-label="search" onClick={handleClear} type="Submit">
               <ClearIcon style={{ fill: "blue" }} />
             </IconButton>}}
           />
-          
           
           <IconButton disabled="true" aria-label="search" onClick={handleSearch} type="Submit">
             <SearchIcon style={{ fill: "blue" }} />
           </IconButton>
         </form>
       </div>
-      
-      {/* Listing items */}
-      <div>
+  
+    <div className="wrapper">
+      <div className="left-cont" >
+        Выбери магазин
+
+        <FormControlLabel 
+          control={<Checkbox 
+            onChange={handleCheckbox}
+            value="flip"/>} 
+          label="Flip"/>
+          
+        <FormControlLabel 
+          control={<Checkbox 
+            onChange={handleCheckbox}
+            value="meloman"/>} 
+          label="Meloman"
+        />
+
+        <FormControlLabel 
+          control={<Checkbox 
+            onChange={handleCheckbox}
+            value="wildberries"/>} 
+          label="Wildberries"
+        />
+          
+        <div style={{marginTop:'3rem'}}></div>
+        Выбери ценовую категорию
+      </div>
+
+      <div className="right-cont">
+        
+        {/* Listing items */}
         <ul className="ul-1">
           {books &&
             books.map((book, i) => (
@@ -122,16 +178,28 @@ const Search = () => {
                 <Book book={book} />
               </ul>
             ))}
-        </ul>
+          </ul>
+      </div>
       </div>
 
-      {/* Pagination */}
-      {numberOfPages>0 &&(
-      <div className='btns'>
-        <AppPagination setPageNumber={setPageNumber} numberOfPages={numberOfPages} page={pageNumber}/>
-      </div>)}
+      <div className="pagination">
+          {/* Pagination */}
+          {numberOfPages>0 &&(
+          <div className='btns'>
+            <AppPagination setPageNumber={setPageNumber} numberOfPages={numberOfPages} page={pageNumber}/>
+          </div>)}
+      </div>
+      
+      
+      
+      
+
+      
     </div>
   );
 }
 
 export default Search
+
+
+// https://www.youtube.com/watch?v=81gvCHNSnH8

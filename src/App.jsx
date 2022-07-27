@@ -17,7 +17,7 @@ function App() {
       </header>
       <main>
         <Routes>
-        <Route path="/" element={<Search/>} exact/>
+          <Route path="/" element={<Search/>} exact/>
           <Route path="/home" element={<Home/>} exact/>
           <Route path="/allbooks" element={<Search/>} exact/>
         </Routes>
