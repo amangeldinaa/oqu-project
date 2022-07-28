@@ -6,11 +6,15 @@ const Book = (props) => {
   return (
     <div className='card'>
         <img src={image} alt={title}/>  
-        <h3>{title}</h3>
-        <h4>{store}</h4>
+        <div>{title}</div>
+        
         <h5>{info}</h5>
-        <a href={link}>Visit website</a>
-        <h4>{price} тг</h4>
+        <div className='price-store'>
+          <h4>{price} тг</h4>
+          <h4>{store}</h4>
+        </div>
+        <a href={link}>Посмотреть Магазин</a>
+        
     </div>
   )
 }

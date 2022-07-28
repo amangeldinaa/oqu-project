@@ -14,7 +14,7 @@ const Header = () => {
         >
             <Toolbar  >
                 <Typography LinkComponent={NavLink} to="/home" style={{color:'rgb(0, 0, 105)'}}>
-                    <AutoStoriesIcon/>
+                    {/* <AutoStoriesIcon/> */}
                     EasyRead
                 </Typography>
                 <Tabs
@@ -24,8 +24,8 @@ const Header = () => {
                     value={value}
                     onChange={(e,val)=>setValue(val)}
                 >
-                    <Tab LinkComponent={NavLink} to="/home" style={{color: "rgb(0, 0, 105)"}} label="Home"/>
-                    <Tab LinkComponent={NavLink} to="/allbooks" style={{color: "rgb(0, 0, 105)"}} label="Show all books"/>
+                    <Tab LinkComponent={NavLink} to="/home" style={{color: "rgb(0, 0, 105)"}} label="Домой"/>
+                    <Tab LinkComponent={NavLink} to="/allbooks" style={{color: "rgb(0, 0, 105)"}} label="Показать все книги"/>
                 </Tabs>
             </Toolbar>
 
