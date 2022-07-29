@@ -12,7 +12,7 @@ const AppPagination = ({setPageNumber, numberOfPages, page}) => {
           window.scroll(0,0)
         }}
         count={numberOfPages}
-        color="primary"
+        // color="primary"
         page={page}
         renderItem={
           (item) => (

@@ -109,6 +109,7 @@ const Search = () => {
 
   return (
     <div className='app'>
+      <div className='cont'>
       {/* Search items */}
       <div className="search">
         <form >
@@ -123,12 +124,12 @@ const Search = () => {
             size="small"
             InputProps={{endAdornment: 
             <IconButton sx={{visibility: searchValue? "visible": "hidden"}} aria-label="search" onClick={handleClear} type="Submit">
-              <ClearIcon style={{ fill: "blue" }} />
+              <ClearIcon style={{ fill: "#2C1810" }} />
             </IconButton>}}
           />
           
-          <IconButton disabled="true" aria-label="search" onClick={handleSearch} type="Submit">
-            <SearchIcon style={{ fill: "blue" }} />
+          <IconButton aria-label="search" onClick={handleSearch} type="Submit">
+            <SearchIcon style={{ fill: "#2C1810" }} />
           </IconButton>
         </form>
       </div>
@@ -143,14 +144,20 @@ const Search = () => {
           sx={{marginBottom:"-0.5rem"}}
           control={<Checkbox 
             onChange={handleCheckbox}
-            value="flip"/>} 
+            value="Flip"/>} 
           label="Flip"/>
           
         <FormControlLabel 
-          sx={{marginBottom:"-0.5rem"}}
+          sx={{
+            marginBottom:"-0.5rem",
+            // fontFamily: 'Open Sans', sansSerif,
+            // fontFamily: 'Raleway', sansSerif, 
+            // fontFamily: 'Titillium Web', sansSerif,
+            // fontFamily: 'Uchen', serif
+          }}
           control={<Checkbox 
             onChange={handleCheckbox}
-            value="meloman"/>} 
+            value="Meloman"/>} 
           label="Meloman"
         />
 
@@ -158,7 +165,7 @@ const Search = () => {
           sx={{marginBottom:"-0.5rem"}}
           control={<Checkbox 
             onChange={handleCheckbox}
-            value="wildberries"/>} 
+            value="Wildberries"/>} 
           label="Wildberries"
         />
           
@@ -189,7 +196,7 @@ const Search = () => {
           /> тг
         </div>
         <Slider 
-          sx={{marginLeft:'0.5rem', marginTop:'0.7rem'}}
+          sx={{color:'#5d3624',marginLeft:'0.5rem', marginTop:'0.7rem'}}
           defaultValue={30000}  
           aria-label="Default" 
           valueLabelDisplay="auto" 
@@ -217,10 +224,10 @@ const Search = () => {
           {/* Pagination */}
           {numberOfPages>0 &&(
           <div className='btns'>
-            <AppPagination setPageNumber={setPageNumber} numberOfPages={numberOfPages} page={pageNumber}/>
+            <AppPagination  setPageNumber={setPageNumber} numberOfPages={numberOfPages} page={pageNumber}/>
           </div>)}
       </div>
-      
+      </div>
     </div>
   );
 }

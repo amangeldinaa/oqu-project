@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@300&family=Titillium+Web:wght@400;700&family=Uchen&display=swap');
+
 .navbar {
     color: pink;
     display: flex;
@@ -5,8 +7,10 @@
     align-items: flex-start;
 }
 
-/* .MuiPaper-root{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-} */
+.container {
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Raleway', sans-serif; 
+    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Uchen', serif;
+}
+
