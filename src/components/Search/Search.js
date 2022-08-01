@@ -112,7 +112,13 @@ const Search = () => {
     fetchHandler()
   }, [price]);
 
+  const isDesktop = useMediaQuery({
+    query: "(min-width: 992px)"
+  });
+
   return (
+    <>
+    {isDesktop ?  
     <div className='app'>
       <div className='cont'>
         <div className='logo'>
@@ -245,6 +251,144 @@ const Search = () => {
       </div>
       </div>
     </div>
+    :
+
+
+
+
+    <div className='app'>
+      <div className='cont-m'>
+        <div className='logo'>
+          <Link to="/home">
+            <img
+              style={{width:'4%', height:'auto'}}
+              src={Logo}
+              alt="logo"
+            />
+        </Link>
+          {/* {<img LinkComponent={NavLink} to="/home" style={{width:'4%', height:'auto'}} src={Logo}/>} */}
+        </div>
+
+      {/* Search items */}
+      <div className="search">
+        <form >
+          <TextField
+            id="search-bar"
+            className="inputRounded"
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+            label="Введи название книги"
+            variant="outlined"
+            placeholder="Искать..."
+            size="small"
+            InputProps={{endAdornment: 
+            <IconButton sx={{visibility: searchValue? "visible": "hidden"}} aria-label="search" onClick={handleClear} type="Submit">
+              <ClearIcon style={{ fill: "#7f472c" }} />
+            </IconButton>}}
+          />
+          
+          <IconButton aria-label="search" onClick={handleSearch} type="Submit">
+            <SearchIcon style={{ fill: "#7f472c" }} />
+          </IconButton>
+        </form>
+      </div>
+  
+    <div className="wrapper">
+      <div className="left-cont" >
+        <div className="filter"><FilterIcon/> Фильтры </div>
+        <div class="divider div-transparent"></div>
+        <div className="double-4">Выбери магазин</div>
+
+        <FormControlLabel 
+          sx={{marginBottom:"-0.5rem"}}
+          control={<Checkbox 
+            onChange={handleCheckbox}
+            value="Flip"/>} 
+          label="Flip"/>
+          
+        <FormControlLabel 
+          sx={{
+            marginBottom:"-0.5rem",
+            // fontFamily: 'Open Sans', sansSerif,
+            // fontFamily: 'Raleway', sansSerif, 
+            // fontFamily: 'Titillium Web', sansSerif,
+            // fontFamily: 'Uchen', serif
+          }}
+          control={<Checkbox 
+            onChange={handleCheckbox}
+            value="Meloman"/>} 
+          label="Meloman"
+        />
+
+        <FormControlLabel 
+          sx={{marginBottom:"-0.5rem"}}
+          control={<Checkbox 
+            onChange={handleCheckbox}
+            value="Wildberries"/>} 
+          label="Wildberries"
+        />
+          
+        <div style={{marginTop:'2rem'}}></div>
+        <div style={{marginBottom:'1rem'}} className="double-4">Выбери ценовую категорию</div>
+        <div className="price-btns">
+          от <TextField
+            id="min"
+            disabled="true"
+            // className="inputRounded"
+            value={minPrice}
+            onChange={(e) => setMinPrice(e.target.value)}
+            // label={minPrice}
+            variant="outlined"
+            placeholder={minPrice}
+            size="small"
+            sx={{width:'34%', height:'5%' }}
+          /> до <TextField
+            id="max"
+            // className="inputRounded"
+            value={maxPrice}
+            onChange={handleMaxPrice}
+            // label={minPrice}
+            variant="outlined"
+            placeholder={maxPrice}
+            size="small"
+            sx={{width:'34%', height:'5%'}}
+          /> тг
+        </div>
+        <Slider 
+          sx={{color:'#7f472c',marginLeft:'0.5rem', marginTop:'0.7rem'}}
+          defaultValue={30000}  
+          aria-label="Default" 
+          valueLabelDisplay="auto" 
+          onChange={(e) => {setPrice(e.target.value)}}
+          max={maxPrice}
+          min={minPrice}
+        />
+      </div>
+
+      <div className="right-cont">
+        
+        {/* Listing items */}
+        <ul className="ul-1">
+          {books &&
+            books.map((book, i) => (
+              <ul className="ul-2" key={i}>
+                <Book book={book} />
+              </ul>
+            ))}
+          </ul>
+      </div>
+      </div>
+
+      <div className="pagination">
+          {/* Pagination */}
+          {numberOfPages>0 &&(
+          <div className='btns'>
+            <AppPagination  setPageNumber={setPageNumber} numberOfPages={numberOfPages} page={pageNumber}/>
+          </div>)}
+      </div>
+      </div>
+    </div>
+    }</>
   );
 }
 
