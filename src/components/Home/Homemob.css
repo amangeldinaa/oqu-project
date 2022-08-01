@@ -14,7 +14,7 @@
 
 .inner-cont-m {
     background-color: #f9f3ee;
-    width: 80%;
+    width: 90%;
     height: 65vh;
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
@@ -23,7 +23,7 @@
 
 .under-shelf-m {
     background-color: #f8f3ed;
-    width: 80%;
+    width: 90%;
     height: 10vh;
     border-bottom-left-radius: 40px;
     border-bottom-right-radius: 40px;
@@ -81,7 +81,7 @@
 .second-cont-m {
     margin-top: 1.5rem;
     background-color: #f9f3ee;
-    width: 80%;
+    width: 90%;
     height: 110vh;
     border-radius: 40px;
     box-shadow: 5px 5px 10px #ccc;
@@ -194,12 +194,15 @@
 }
 
 .img-1-m {
+    width: 100%;
+    height: auto;
     display: flex;
     justify-content: space-evenly;
 }
 
 .img-2-m {
     width: 100%;
+    height: auto;
     display: flex;
     justify-content: center;
 }
