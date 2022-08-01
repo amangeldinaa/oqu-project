@@ -261,11 +261,11 @@ const Home = () => {
 
             <div className='stores-m'>
             <div className='img-2-m'>
-              <img style={{width:'34%', height:'auto'}} src={WildLogo}/>
+              <img style={{width:'33%', height:'auto'}} src={WildLogo}/>
             </div>
             <div className='img-1-m'>
-              <img style={{width:'24%', height:'auto'}} src={FlipLogo}/>
-              <img style={{width:'32%', height:'auto'}} src={MelomanLogo}/>
+              <img style={{width:'22%', height:'auto'}} src={FlipLogo}/>
+              <img style={{width:'30%', height:'auto'}} src={MelomanLogo}/>
             </div>
             </div>
 
