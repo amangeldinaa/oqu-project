@@ -43,7 +43,7 @@
 }
   
 .top-m {
-    width: 85%;
+    width: 95%;
     height: 120%;
     position: absolute;
     top: 0;
@@ -52,7 +52,7 @@
 }
   
 .front-m {
-    width: 90%;
+    width: 99%;
     height: 15%;
     position: absolute;
     bottom: 0;
@@ -60,7 +60,7 @@
 }
   
 .shadow-m {
-    width: 90%;
+    width: 99%;
     height: 15%;
     position: absolute;
     bottom: 0;
@@ -148,7 +148,7 @@
     background-color: #f8f3ed;
     /* border-bottom: 1px solid #ffefdb; */
     position: relative;
-    margin-bottom: -2rem;
+    margin-bottom: -4rem;
 }
 
 .intro-book-m {
