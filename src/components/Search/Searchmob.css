@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@300&family=Titillium+Web:wght@400;700&family=Uchen&display=swap');
+.app {
+    width: 100vw;
+    height: auto;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Raleway', sans-serif; 
+    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Uchen', serif;
+    display: flex;
+    flex-direction: column;
+    background-color: #f3e5d0;
+    align-items: center;
+}
+
+.cont-m {
+    width: 95%;
+    /* height: auto; */
+    /* height: auto; */
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #ccc;
+    background-color: #f8f3ed;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+}
+
+.wrapper-m {
+    display: flex;
+    flex-direction: column;
+}
+
+.left-cont-m {
+    width: 90%;
+    height: 60%;
+    float: left; 
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    margin-top: 2.5rem;
+    /* border: 1px solid black; */
+    /* box-shadow: 0 1rem 2rem rgba(0,0,0,0.2); */
+}

@@ -10,26 +10,12 @@ import axios from 'axios';
 import Book from "../Book/Book";
 import AppPagination from "../Pagination";
 import './Search.css';
+import './Searchmob.css';
 import {ReactComponent as FilterIcon} from "../../assets/filtericon.svg";
 import {Link} from "react-router-dom";
 import Logo from "../../assets/Logo.png";
-import {REACT_APP_BACKEND_URL} from '../../constants/constants'
-
-
-const storeOptions = [
-  {
-    "id": 1,
-    "name": "flip"
-  },
-  {
-    "id": 2,
-    "name": "meloman"
-  },
-  {
-    "id": 3,
-    "name": "wildberries"
-  }
-]
+import {REACT_APP_BACKEND_URL} from '../../constants/constants';
+import { useMediaQuery } from "react-responsive";
 
 const Search = () => {
 
@@ -293,8 +279,8 @@ const Search = () => {
         </form>
       </div>
   
-    <div className="wrapper">
-      <div className="left-cont" >
+    <div className="wrapper-m">
+      <div className="left-cont-m" >
         <div className="filter"><FilterIcon/> Фильтры </div>
         <div class="divider div-transparent"></div>
         <div className="double-4">Выбери магазин</div>

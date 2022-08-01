@@ -18,7 +18,8 @@
 
 .ul-2 {
     padding: 10px;
-    width: 20%;
+    /* width: 20%; */
+    width: 185px;
     max-width: 200px;
     max-height: 400px;
 }
