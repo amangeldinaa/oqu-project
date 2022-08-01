@@ -11,6 +11,9 @@ function Footer() {
             <div>
                 {'nFactorial Incubator 2022'}
             </div>
+            <div>
+                {'amangeldinaaru@gmail.com'}
+            </div>
         </div>
     </div>
   )

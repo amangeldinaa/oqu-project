@@ -13,6 +13,7 @@ import './Search.css';
 import {ReactComponent as FilterIcon} from "../../assets/filtericon.svg";
 import {Link} from "react-router-dom";
 import Logo from "../../assets/Logo.png";
+import {REACT_APP_BACKEND_URL} from '../../constants/constants'
 
 const URL = "http://localhost:5000/api/";
 
@@ -42,9 +43,12 @@ const Search = () => {
   const [minPrice, setMinPrice] = useState(100);
   const [maxPrice, setMaxPrice] = useState(75000);
 
+  console.log(process.env.REACT_APP_BACKEND_URL, 'REACT_APP_BACKEND_URL');
+
   const fetchHandler = () => {
-    axios.get(`http://localhost:5000/api/?page=${pageNumber-1}`, 
-    { params: { 
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/`, 
+    { params: {
+      page: pageNumber - 1,
       title: searchValue.trim(), 
       store: `${stores[0]};${stores[1]};${stores[2]}`,
       price: price }})
@@ -137,12 +141,12 @@ const Search = () => {
             size="small"
             InputProps={{endAdornment: 
             <IconButton sx={{visibility: searchValue? "visible": "hidden"}} aria-label="search" onClick={handleClear} type="Submit">
-              <ClearIcon style={{ fill: "#2C1810" }} />
+              <ClearIcon style={{ fill: "#7f472c" }} />
             </IconButton>}}
           />
           
           <IconButton aria-label="search" onClick={handleSearch} type="Submit">
-            <SearchIcon style={{ fill: "#2C1810" }} />
+            <SearchIcon style={{ fill: "#7f472c" }} />
           </IconButton>
         </form>
       </div>
@@ -209,7 +213,7 @@ const Search = () => {
           /> тг
         </div>
         <Slider 
-          sx={{color:'#b0643e',marginLeft:'0.5rem', marginTop:'0.7rem'}}
+          sx={{color:'#7f472c',marginLeft:'0.5rem', marginTop:'0.7rem'}}
           defaultValue={30000}  
           aria-label="Default" 
           valueLabelDisplay="auto" 
