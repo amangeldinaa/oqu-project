@@ -110,12 +110,11 @@ body {
 
     width: 92%;
     height: 120%;
-    margin-top: 0;
-    background: 7px 0  url(http://us.123rf.com/400wm/400/400/mettus/mettus1002/mettus100200138/6476266-motif-de-la-planche-de-bois-obsolete.jpg);
-    background-size: 88%;
+    /* background: 7px 0  url(http://us.123rf.com/400wm/400/400/mettus/mettus1002/mettus100200138/6476266-motif-de-la-planche-de-bois-obsolete.jpg); */
+    /* background-size: 88%; */
     position: absolute;
     top: 0;
-    left: 50px;
+    /* left: 50px; */
     transform: perspective(700px) rotateX(65deg);
     /* box-shadow: inset 0 40px 130px -20px #fdf2e1; */
     box-shadow: inset 0 40px 130px -20px #f4eee3;
@@ -148,10 +147,10 @@ body {
     height: 15%;
     position: absolute;
     bottom: 0;
-    left: 5px;
+    /* left: 5px; */
     color: transparent;
     box-shadow: 0 10px 20px -2px #928a80;
-    margin-left: 1.3rem;
+    /* margin-left: 1.3rem; */
 }
  
   
@@ -160,7 +159,7 @@ body {
     height: 90%;
     /* border: 2px solid black; */
     background-color: #f8f3ed;
-    border-bottom: 1px solid #ffefdb;
+    /* border-bottom: 1px solid #ffefdb; */
 }
 
 .col-2 {
@@ -173,7 +172,7 @@ body {
     align-items: flex-end;
     /* border: 2px solid black; */
     background-color: #f8f3ed;
-    border-bottom: 1px solid #ffefdb;
+    /* border-bottom: 1px solid #ffefdb; */
     position: relative;
 }
 
@@ -183,7 +182,7 @@ body {
     flex-direction: column;
     width: 35%;
     height: 92%;
-    border-bottom: 1px solid #ffefdb;
+    /* border-bottom: 1px solid #f8f3ed; */
     /* border: 2px solid black; */
 }
 

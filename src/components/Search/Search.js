@@ -15,7 +15,6 @@ import {Link} from "react-router-dom";
 import Logo from "../../assets/Logo.png";
 import {REACT_APP_BACKEND_URL} from '../../constants/constants'
 
-const URL = "http://localhost:5000/api/";
 
 const storeOptions = [
   {
