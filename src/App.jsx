@@ -1,5 +1,6 @@
 import './App.css';
 import Header from "./components/Header/Header"
+import Footer from "./components/Footer/Footer"
 import Books from "./components/Book/Books"
 import Search from "./components/Search/Search"
 import Home from "./components/Home/Home"
@@ -11,16 +12,19 @@ function App() {
   return (
   // <div className='app'>
     <React.Fragment>
-      <header>
+      {/* <header>
         <Header />
-      </header>
+      </header> */}
       <main>
         <Routes>
-          <Route path="/" element={<Search/>} exact/>
+          <Route path="/" element={<Home/>} exact/>
           <Route path="/home" element={<Home/>} exact/>
           <Route path="/allbooks" element={<Search/>} exact/>
         </Routes>
       </main>
+      <footer>
+        <Footer />
+      </footer>
       {/* <Search/> */}
     </React.Fragment>
   );

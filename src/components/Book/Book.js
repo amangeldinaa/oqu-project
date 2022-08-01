@@ -18,10 +18,16 @@ const Book = (props) => {
         </div>
 
         <div className='link-btn'>
-          <Button style={{
-              backgroundColor: '#f3e5d0',
-              borderRadius: '50px'}} href={link}  target="_blank" variant="contained">
-            Перейти на сайт
+          <Button 
+            sx={{
+              borderColor: '#b0643e',
+              color:'#b0643e',
+              borderRadius: '50px'
+            }}
+            variant="outlined"
+            href={link}  
+            target="_blank" 
+          >Перейти на сайт
           </Button>
         </div>
         

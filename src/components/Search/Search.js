@@ -11,6 +11,8 @@ import Book from "../Book/Book";
 import AppPagination from "../Pagination";
 import './Search.css';
 import {ReactComponent as FilterIcon} from "../../assets/filtericon.svg";
+import {Link} from "react-router-dom";
+import Logo from "../../assets/Logo.png";
 
 const URL = "http://localhost:5000/api/";
 
@@ -110,12 +112,23 @@ const Search = () => {
   return (
     <div className='app'>
       <div className='cont'>
+        <div className='logo'>
+          <Link to="/home">
+            <img
+              style={{width:'4%', height:'auto'}}
+              src={Logo}
+              alt="logo"
+            />
+        </Link>
+          {/* {<img LinkComponent={NavLink} to="/home" style={{width:'4%', height:'auto'}} src={Logo}/>} */}
+        </div>
+
       {/* Search items */}
       <div className="search">
         <form >
           <TextField
             id="search-bar"
-            className="text"
+            className="inputRounded"
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
             label="Введи название книги"
@@ -175,7 +188,7 @@ const Search = () => {
           от <TextField
             id="min"
             disabled="true"
-            className="text"
+            // className="inputRounded"
             value={minPrice}
             onChange={(e) => setMinPrice(e.target.value)}
             // label={minPrice}
@@ -185,7 +198,7 @@ const Search = () => {
             sx={{width:'34%', height:'5%' }}
           /> до <TextField
             id="max"
-            className="text"
+            // className="inputRounded"
             value={maxPrice}
             onChange={handleMaxPrice}
             // label={minPrice}
@@ -196,7 +209,7 @@ const Search = () => {
           /> тг
         </div>
         <Slider 
-          sx={{color:'#5d3624',marginLeft:'0.5rem', marginTop:'0.7rem'}}
+          sx={{color:'#b0643e',marginLeft:'0.5rem', marginTop:'0.7rem'}}
           defaultValue={30000}  
           aria-label="Default" 
           valueLabelDisplay="auto" 

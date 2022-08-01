@@ -6,8 +6,7 @@ import {NavLink} from "react-router-dom";
 import BookIcon from "../../assets/books.png";
 import {ReactComponent as FilterIcon} from "../../assets/filtericon.svg";
 import { createTheme } from '@mui/material/styles';
-// import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-// import { orange, brown, green } from "@material-ui/core/colors";
+import Logo from "../../assets/Logo.png";
 
 const Header = () => {
     const [value, setValue] = useState();
@@ -27,17 +26,18 @@ const Header = () => {
             // elevation={0}
         >
             <Toolbar  >
-                <Typography LinkComponent={NavLink} to="/home" style={{color:'black'}}>
+                {<img LinkComponent={NavLink} to="/home" style={{width:'6%', height:'auto'}} src={Logo}/>}
+                <Typography  style={{color:'black'}}>
                     {/* <AutoStoriesIcon/> */}
-                    OQU
+                    
                 </Typography>
-                   <Tabs
+                <Tabs
                     sx={{ml: "auto"}}
                     // textColor="inherit" 
                     // indicatorColor="primary"
                     value={value}
                     onChange={(e,val)=>setValue(val)}
-                >
+                   >
                     <Tab 
                         LinkComponent={NavLink} 
                         to="/home" 

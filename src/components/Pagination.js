@@ -18,7 +18,7 @@ const AppPagination = ({setPageNumber, numberOfPages, page}) => {
           (item) => (
             <PaginationItem
               component={NavLink}
-              to={`/?page=${item.page}`}
+              to={`/allbooks/?page=${item.page}`}
               {...item}
             />
           )

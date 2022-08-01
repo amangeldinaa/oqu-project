@@ -4,19 +4,37 @@
 
 .container-home {
     width: 100%;
-    height: 89.5vh;
-    background-color: #f3e5d0;
+    height: 100vh;
+    background-color: #f2e5d0;
+    /* background-color: #f8f3ed; */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 .inner-cont {
-    background-color: #f8f3ed;
-    width: 90%;
-    height: 94%;
-    border-radius: 40px;
+    background-color: #f9f3ee;
+    width: 88%;
+    height: 50%;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
     box-shadow: 5px 5px 10px #ccc;
+    /* z-index: 20; */
+    /* display: flex;
+    justify-content: center;
+    flex-direction: column; */
+}
+
+.under-shelf {
+    background-color: #f8f3ed;
+    width: 88%;
+    height: 30%;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    box-shadow: 5px 5px 10px #ccc;
+    display: flex;
+    
 }
 
 .primary-text {
@@ -40,12 +58,6 @@
     margin-top: 1.5rem;
     line-height: 1.5;
     font-size: 14px;
-    /* font-family: 'Libre Caslon Text', serif;
-    font-family: 'Montserrat', sans-serif;
-    font-family: 'Open Sans', sans-serif;
-    font-family: 'Raleway', sans-serif;
-    font-family: 'Titillium Web', sans-serif;
-    font-family: 'Uchen', serif; */
     font-family: 'Open Sans', sans-serif;
     font-family: 'Raleway', sans-serif; 
     font-family: 'Titillium Web', sans-serif;
@@ -54,7 +66,10 @@
 
 .search-bar {
     width: 100%;
-    margin-left: 2rem;
+    margin-left: 4rem;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
 }
 
 .inputRounded .MuiOutlinedInput-root {
@@ -63,85 +78,155 @@
     /* color: white; */
 }
 
-
-
-
 body {
-	background-color: #f8f3ed;
-  	background-image: linear-gradient(left, #f8f3ed, #fcf0e0, #ffe7c9)
+    background-color: #434752;
+    background-image: linear-gradient(left, rgb(67, 71, 82), rgb(42, 45, 53), rgb(42, 45, 53))
 }
   
 
 .shelf {
-	width: 100%;
-  	height: 30%;
- 	margin: 50px auto;
-    margin-right: 10%;
-  	position: static;
+    width: 100%;
+    height: 9%;
+    /* margin: 50px auto; */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+    /* background-color: white; */
+    
+    /* position: absolute;
+    z-index: 30;
+    top: 70%; */
 }
   
 
 .top {
-	width: 636px;
-  	height: 100px;
-  	background: 7px 0  url(http://us.123rf.com/400wm/400/400/mettus/mettus1002/mettus100200138/6476266-motif-de-la-planche-de-bois-obsolete.jpg);
-  	background-size: 88%;
-  	position: absolute;
-  	top: 0;
-  	left: 32px;
-  	transform: perspective(300px) rotateX(75deg);
-  	box-shadow: inset 0 40px 130px -20px #6c5334;
+
+    /* position: absolute;
+    z-index: 30;
+    top: 60%; */
+
+    width: 92%;
+    height: 120%;
+    margin-top: 0;
+    background: 7px 0  url(http://us.123rf.com/400wm/400/400/mettus/mettus1002/mettus100200138/6476266-motif-de-la-planche-de-bois-obsolete.jpg);
+    background-size: 88%;
+    position: absolute;
+    top: 0;
+    left: 50px;
+    transform: perspective(700px) rotateX(65deg);
+    /* box-shadow: inset 0 40px 130px -20px #fdf2e1; */
+    box-shadow: inset 0 40px 130px -20px #f4eee3;
 }
   
 
 .front {
-	width: 100%;
-  	height: 18px;
-  	background:  url(http://us.123rf.com/400wm/400/400/mettus/mettus1002/mettus100200138/6476266-motif-de-la-planche-de-bois-obsolete.jpg);
-  	position: absolute;
-  	bottom: 0;
-  	box-shadow: inset 0 1px 1px 0 #776959, inset 0 -2px 20px -2px #967751;
+
+    
+    /* position: absolute;
+    z-index: 30;
+    top: 60%; */
+
+    width: 96%;
+    height: 15%;
+    /* background:  url(http://us.123rf.com/400wm/400/400/mettus/mettus1002/mettus100200138/6476266-motif-de-la-planche-de-bois-obsolete.jpg); */
+    position: absolute;
+    bottom: 0;
+    box-shadow: inset 0 1px 1px 0 #f3efea, inset 0 -2px 20px -2px #faf7f4;   
+}
+  
+  
+.shadow {
+    
+    /* position: absolute;
+    z-index: 30;
+    top: 60%; */
+
+    width: 96%;
+    height: 15%;
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+    color: transparent;
+    box-shadow: 0 10px 20px -2px #928a80;
+    margin-left: 1.3rem;
 }
  
   
-.shadow {
-	width: 100%;
-  	height: 18px;
-  	position: absolute;
-  	bottom: 0;
-  	left: 5px;
-  	box-shadow: 0 10px 20px -2px rgb(126, 126, 126);
-}
-  
 .col-1 {
     width: 30%;
+    height: 92%;
     /* border: 2px solid black; */
+    background-color: #f8f3ed;
+    border-bottom: 1px solid #ffefdb;
 }
 
 .col-2 {
+    /* margin-top: 22rem; */
+    height: 100%;
     width: 45%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
+    align-items: flex-end;
     /* border: 2px solid black; */
+    background-color: #f8f3ed;
+    border-bottom: 1px solid #ffefdb;
+    position: relative;
 }
 
 .col-3 {
+    background-color: #f8f3ed;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     width: 35%;
+    height: 92%;
+    border-bottom: 1px solid #ffefdb;
     /* border: 2px solid black; */
 }
 
 .row-1 {
-    height: 70%;
+    height: 100%;
     display: flex;
+    align-items: flex-end;
     /* border: 2px solid black; */
 }
 
-.img-1 {
+.stores {
+    background-color: rgb(255, 250, 241);
+    background-color: white;
+    border-radius: 30px;
+    width: 85%;
+    height: 55%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    box-shadow: 5px 5px 10px #ccc;
+}
+
+.stores-text {
+    color:#91857f;
     width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-bottom: 0.5rem;
+    margin-left: 0.5rem;
+    text-align: left;
+    font-family: 'Libre Caslon Text', serif;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Raleway', sans-serif; 
+    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Uchen', serif;
+    line-height: 1.5;
+    /* transform: rotate(270deg); */
+}
+
+.img-1 {
     display: flex;
     justify-content: space-evenly;
 }
@@ -153,9 +238,84 @@ body {
 }
 
 .intro-book {
-    width: 45%;
+    margin-bottom: -1.4rem;
+    position: absolute;
+    z-index: 1;
+    width: 50%;
     height: auto;
     /* box-shadow: 10px 0 5px -2px #; */
+    filter: drop-shadow(10px 10px 10px #c2b5a3);
     
-filter: drop-shadow(10px 10px 10px #c2b5a3);
 }
+
+.logo {
+    height: 4%;
+    width: 90%;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+}
+
+.under-col {
+    height: 100%;
+    width: 33.3%;
+    display: flex;
+    /* border: 2px solid black */
+}
+
+.under-col-img {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid black */
+}
+
+.under-col-text {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* border: 2px solid black */
+}
+
+.text-wrapper {
+    width: 70%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.intro-book-info {
+    color:#91857f;
+    width: 90%;
+    font-size: 30px;
+    height: 30%;
+    text-align: left;
+    line-height: 1;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Raleway', sans-serif; 
+    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Uchen', serif;
+}
+
+.intro-book-title {
+    text-align: left;
+    font-family: 'Libre Caslon Text', serif;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Raleway', sans-serif; 
+    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Uchen', serif;
+    /* font-weight: 600;  */
+    /* margin-bottom: 0.2rem; */
+    width: 100%;
+    height: 20%;
+    margin-bottom: 10%;
+    /* border: 2px solid black; */
+    line-height: 1;
+    /* color: #bd7843; */
+}
+
