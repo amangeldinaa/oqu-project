@@ -5,8 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon App.js",
-    "heroku-postbuild": "npm install"
+    "start": "nodemon App.js"
   },
   "author": "",
   "license": "ISC",
