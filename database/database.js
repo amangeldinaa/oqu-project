@@ -1,7 +1,7 @@
 const mongoose = require ('mongoose');
 
 const connectToDatabase = async () => {
-    await mongoose.connect('mongodb://localhost:27017/library', {family:4})
+    await mongoose.connect('mongodb+srv://aruzhan-amangeldina:6916qwopzxnm@oqu-project.kzzew.mongodb.net/library')
     .then(() => {
         console.log("successfully connected");
     })
