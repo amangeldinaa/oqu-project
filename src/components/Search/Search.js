@@ -8,6 +8,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Slider from '@mui/material/Slider';
 import axios from 'axios';
 import Book from "../Book/Book";
+import Bookmob from "../Book/Bookmob";
 import AppPagination from "../Pagination";
 import './Search.css';
 import './Searchmob.css';
@@ -247,7 +248,7 @@ const Search = () => {
         <div className='logo'>
           <Link to="/home">
             <img
-              style={{width:'4%', height:'auto'}}
+              style={{width:'10%', height:'auto'}}
               src={Logo}
               alt="logo"
             />
@@ -354,11 +355,11 @@ const Search = () => {
       <div className="right-cont">
         
         {/* Listing items */}
-        <ul className="ul-1">
+        <ul className="ul-1-m">
           {books &&
             books.map((book, i) => (
-              <ul className="ul-2" key={i}>
-                <Book book={book} />
+              <ul className="ul-2-m" key={i}>
+                <Bookmob book={book} />
               </ul>
             ))}
           </ul>

@@ -153,7 +153,7 @@ const Home = () => {
                         maxWidth: '60%', minWidth: '60%'
                     }}
                     variant="outlined"
-                    href={'https://www.flip.kz/catalog?prod=1833874'}  
+                    href={'https://www.meloman.kz/sentimental-novel/kolgan-dzh-knizhnyj-magazinchik-schast-ja.html'}  
                     target="_blank" 
                     >Купить
                     </Button>
@@ -188,7 +188,7 @@ const Home = () => {
                         maxWidth: '60%', minWidth: '60%'
                     }}
                     variant="outlined"
-                    href={'https://www.flip.kz/catalog?prod=1833874'}  
+                    href={'https://kz.wildberries.ru/product?card=2167404'}  
                     target="_blank" 
                     >Купить
                     </Button>
@@ -198,6 +198,8 @@ const Home = () => {
         </div>
     </div>
     : 
+
+
     <div className="container-home-m">
       <div className="inner-cont-m">
         <div className='logo-m'>
@@ -332,7 +334,7 @@ const Home = () => {
                         maxWidth: '60%', minWidth: '60%'
                     }}
                     variant="outlined"
-                    href={'https://www.flip.kz/catalog?prod=1833874'}  
+                    href={'https://www.meloman.kz/sentimental-novel/kolgan-dzh-knizhnyj-magazinchik-schast-ja.html'}  
                     target="_blank" 
                     >Купить
                     </Button>
@@ -367,7 +369,7 @@ const Home = () => {
                         maxWidth: '60%', minWidth: '60%'
                     }}
                     variant="outlined"
-                    href={'https://www.flip.kz/catalog?prod=1833874'}  
+                    href={'https://kz.wildberries.ru/product?card=2167404'}  
                     target="_blank" 
                     >Купить
                     </Button>
@@ -375,11 +377,11 @@ const Home = () => {
                 </div>
             </div>
 
-          <div className='last-btn'>
+          <div className='last-btn' style={{marginBottom:"1rem"}}>
           <Button 
                 sx={{
-                  maxWidth: '33%', 
-                  minWidth: '33%', 
+                  maxWidth: '55%', 
+                  minWidth: '55%', 
                   fontSize:'13px',
                   borderColor: '#b0643e',
                   color:'#b0643e',
@@ -391,7 +393,7 @@ const Home = () => {
                   // target="_blank" 
                   // InputProps={{endAdornment: 
                   //   }}
-                >Начать  
+                >Начать искать  
                 <IconButton disabled="true" aria-label="search"  type="Submit">
                     <SearchIcon style={{ fill: "#b0643e" }} />
                 </IconButton>
