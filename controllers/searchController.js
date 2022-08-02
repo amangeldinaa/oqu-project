@@ -149,4 +149,3 @@ class searchController {
 }
 
 module.exports = new searchController();
-
