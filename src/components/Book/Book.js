@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 const Book = (props) => {
   const {title, image, price, info, store, link} = props.book;
   return (
-    <div className='card'>
+    <div className='card hover:bg-gray-900/40 hover:smooth-hover hover:scale-105 transition'>
         <img src={image} alt={title}/>  
 
         <div className="title">{title}</div>
@@ -13,7 +13,7 @@ const Book = (props) => {
         <div className="info">{info}</div>
         
         <div className='price-store'>
-          <div>{price}тг</div>      
+          <div>{price}₸</div>      
           <div>{store}</div>
         </div>
 

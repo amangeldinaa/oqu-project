@@ -86,6 +86,7 @@
 }
 
 .filter {
+    font-size: 18px;
     width: 37%;
     display: flex;
     align-items: center;

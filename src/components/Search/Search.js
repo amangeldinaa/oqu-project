@@ -21,6 +21,13 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+// import { makeStyles } from "@material-ui/core/styles";
+
+// const useStyles = makeStyles({
+//   input: {
+//     color: "blue"
+//   }
+// });
 
 const Search = () => {
 
@@ -140,10 +147,12 @@ const Search = () => {
             variant="outlined"
             placeholder="Искать..."
             size="small"
-            InputProps={{endAdornment: 
-            <IconButton sx={{visibility: searchValue? "visible": "hidden"}} aria-label="search" onClick={handleClear} type="Submit">
-              <ClearIcon style={{ fill: "#7f472c" }} />
-            </IconButton>}}
+            InputProps={{
+              // className: classes.input,
+              endAdornment: 
+              <IconButton sx={{visibility: searchValue? "visible": "hidden"}} aria-label="search" onClick={handleClear} type="Submit">
+                <ClearIcon style={{ fill: "#7f472c" }} />
+              </IconButton>}}
           />
           
           <IconButton aria-label="search" onClick={handleSearch} type="Submit">
@@ -152,10 +161,10 @@ const Search = () => {
         </form>
       </div>
   
-    {/*  ------------------------------Фильтры------------------------------- */}
+    {/*  ------------------------------Filters------------------------------- */}
     <div className="wrapper">
       <div className="left-cont" >
-        <div className="filter"><FilterIcon/> Фильтры </div>
+        <div className="filter">Фильтры </div>
         <div class="divider div-transparent"></div>
         <div className="double-4">Выбери магазин</div>
 
