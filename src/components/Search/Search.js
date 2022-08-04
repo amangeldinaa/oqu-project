@@ -17,6 +17,10 @@ import {Link} from "react-router-dom";
 import Logo from "../../assets/Logo.png";
 import {REACT_APP_BACKEND_URL} from '../../constants/constants';
 import { useMediaQuery } from "react-responsive";
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 const Search = () => {
 
@@ -28,8 +32,11 @@ const Search = () => {
   const [price, setPrice] = useState(75000);
   const [minPrice, setMinPrice] = useState(100);
   const [maxPrice, setMaxPrice] = useState(75000);
+  const [priceIncrease, setPriceIncrease] = useState(false);
+  const [priceDecrease, setPriceDecrease] = useState(false);
+  const [priceSort, setPriceSort] = useState('');
 
-  console.log(process.env.REACT_APP_BACKEND_URL, 'REACT_APP_BACKEND_URL');
+  // console.log(process.env.REACT_APP_BACKEND_URL, 'REACT_APP_BACKEND_URL');
 
   const fetchHandler = () => {
     axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/`, 
@@ -56,9 +63,7 @@ const Search = () => {
 
   const handleCheckbox = (e) => {
     // console.log( e.target.value);
-    console.log(stores)
     const currentStoreChecked = e.target.value;
-    console.log(currentStoreChecked);
     const allStoresChecked = [...stores];
     const indexFound = allStoresChecked.indexOf(currentStoreChecked);
   
@@ -78,13 +83,17 @@ const Search = () => {
     setPrice(e.target.value)
   } 
 
+  const handlePriceSort= (e) => {
+    setPriceSort(e.target.value);
+    console.log(priceSort);
+  }
+
   useEffect(() => {
-    console.log("stores param: ",`${stores[0]};${stores[1]};${stores[2]}`)
+    // console.log("stores param: ",`${stores[0]};${stores[1]};${stores[2]}`)
     fetchHandler()
   }, [stores]);
  
   useEffect(() => {
-    console.log("searchValue", searchValue);
     if (searchValue) {
       fetchHandler()
     }
@@ -95,7 +104,6 @@ const Search = () => {
   }, [pageNumber]);
 
   useEffect(() => {
-    console.log(price)
     fetchHandler()
   }, [price]);
 
@@ -119,8 +127,9 @@ const Search = () => {
           {/* {<img LinkComponent={NavLink} to="/home" style={{width:'4%', height:'auto'}} src={Logo}/>} */}
         </div>
 
-      {/* Search items */}
+      {/* ------------------------Search items----------------------------  */}
       <div className="search">
+        
         <form >
           <TextField
             id="search-bar"
@@ -143,6 +152,7 @@ const Search = () => {
         </form>
       </div>
   
+    {/*  ------------------------------Фильтры------------------------------- */}
     <div className="wrapper">
       <div className="left-cont" >
         <div className="filter"><FilterIcon/> Фильтры </div>
@@ -205,7 +215,7 @@ const Search = () => {
           /> тг
         </div>
         <Slider 
-          sx={{color:'#7f472c',marginLeft:'0.5rem', marginTop:'0.7rem'}}
+          sx={{color:'#7f472c',marginLeft:'0.5rem', marginTop:'0.7rem',marginBottom:'1.5rem'}}
           defaultValue={30000}  
           aria-label="Default" 
           valueLabelDisplay="auto" 
@@ -213,24 +223,64 @@ const Search = () => {
           max={maxPrice}
           min={minPrice}
         />
+
+        <FormControl fullWidth>
+          <InputLabel id="demo-simple-select-label">Сортировать по цене</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={priceSort}
+              label="Сортировать по цене"
+              onChange={handlePriceSort}
+            >
+              <MenuItem value={'increase'}>По возростанию</MenuItem>
+              <MenuItem value={'decrease'}>По убыванию</MenuItem>
+            </Select>
+          </FormControl>
       </div>
 
       <div className="right-cont">
         
-        {/* Listing items */}
-        <ul className="ul-1">
+        {/* -------------------------Listing items-------------------------- */}
+        {(priceSort === '') ? 
+         <ul className="ul-1">
           {books &&
-            books.map((book, i) => (
+            books
+            .map((book, i) => (
+              <ul className="ul-2" key={i}>
+                <Book book={book} />
+              </ul>
+            ))}
+          </ul> 
+          :
+          (priceSort === 'increase') ?
+          <ul className="ul-1">
+          {books &&   
+            books
+            .sort((a, b) => a.price > b.price ? 1 : -1)
+            .map((book, i) => (
+              <ul className="ul-2" key={i}>
+                <Book book={book} />
+              </ul>
+            ))}
+          </ul> 
+          :
+          <ul className="ul-1">
+          {books &&   
+            books
+            .sort((a, b) => a.price < b.price ? 1 : -1)
+            .map((book, i) => (
               <ul className="ul-2" key={i}>
                 <Book book={book} />
               </ul>
             ))}
           </ul>
+        }  
       </div>
       </div>
 
+      {/* -----------------------------Pagination--------------------------- */}
       <div className="pagination">
-          {/* Pagination */}
           {numberOfPages>0 &&(
           <div className='btns'>
             <AppPagination  setPageNumber={setPageNumber} numberOfPages={numberOfPages} page={pageNumber}/>
@@ -242,6 +292,7 @@ const Search = () => {
 
 
 
+    //-----------------------------MOBILE ADAPTATION--------------------------------
 
     <div className='app'>
       <div className='cont-m'>
