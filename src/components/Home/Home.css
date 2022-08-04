@@ -241,8 +241,8 @@
     z-index: 1;
     width: 50%;
     height: auto;
-    /* box-shadow: 10px 0 5px -2px #; */
-    filter: drop-shadow(10px 10px 10px #c2b5a3);
+    /* box-shadow: 5px 0 5px 10px #333; */
+    filter: drop-shadow(10px -1px 10px #c2b5a3);
     
 }
 

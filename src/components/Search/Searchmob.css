@@ -26,6 +26,7 @@
 .wrapper-m {
     display: flex;
     flex-direction: column;
+    margin-top: -1rem;
 }
 
 .left-cont-m {
@@ -38,4 +39,10 @@
     margin-top: 2.5rem;
     /* border: 1px solid black; */
     /* box-shadow: 0 1rem 2rem rgba(0,0,0,0.2); */
+}
+
+.logo-m {
+    margin-top: 0.5rem;
+    height: 5%;
+    margin-bottom: 1rem;
 }

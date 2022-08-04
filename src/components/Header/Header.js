@@ -3,7 +3,6 @@ import {AppBar, Typography, Toolbar, Tab, Tabs} from "@mui/material";
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import "./Header.css";
 import {NavLink} from "react-router-dom";
-import BookIcon from "../../assets/books.png";
 import {ReactComponent as FilterIcon} from "../../assets/filtericon.svg";
 import { createTheme } from '@mui/material/styles';
 import Logo from "../../assets/Logo.png";
@@ -42,7 +41,7 @@ const Header = () => {
                         LinkComponent={NavLink} 
                         to="/home" 
                         style={{color: "black"}} 
-                        label={<><image src={BookIcon}/> Домой</>}
+                        label={<> Домой</>}
                     />
                     <Tab LinkComponent={NavLink} 
                         to="/allbooks" 

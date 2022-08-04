@@ -17,7 +17,7 @@ const Bookmob = (props) => {
         <div className="info-m">{info}</div>
         
         <div className='price-store-m'>
-          <div>{price}тг</div>      
+          <div>{price}₸</div>      
           <div>{store}</div>
         </div>
 

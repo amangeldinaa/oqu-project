@@ -56,7 +56,7 @@
     width: 70%;
     height: 10%;
     /* border: 2px solid black; */
-    line-height: 1.1;
+    line-height: 1.2;
     margin-bottom: 0.7rem;
 }
 
@@ -70,7 +70,7 @@
     text-align: left;
     /* margin-left: 3rem; */
     /* margin-right: 2rem; */
-    line-height: 1;
+    line-height: 1.2;
     font-size: 12px;
     margin-bottom: 0.3rem;
 }

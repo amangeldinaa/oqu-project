@@ -139,6 +139,12 @@ const Search = () => {
         
         <form >
           <TextField
+            sx={{
+              "& .MuiInputLabel-root": {color: '#b0643e'},//styles the label
+              "& .MuiOutlinedInput-root": {
+                "& > fieldset": { borderColor: "#b0643e" },
+              },
+            }}
             id="search-bar"
             className="inputRounded"
             value={searchValue}
@@ -171,6 +177,11 @@ const Search = () => {
         <FormControlLabel 
           sx={{marginBottom:"-0.5rem"}}
           control={<Checkbox 
+            sx={{
+              '&.Mui-checked': {
+              color: '#b0643e',
+              },
+            }}
             onChange={handleCheckbox}
             value="Flip"/>} 
           label="Flip"/>
@@ -178,20 +189,28 @@ const Search = () => {
         <FormControlLabel 
           sx={{
             marginBottom:"-0.5rem",
-            // fontFamily: 'Open Sans', sansSerif,
-            // fontFamily: 'Raleway', sansSerif, 
-            // fontFamily: 'Titillium Web', sansSerif,
-            // fontFamily: 'Uchen', serif
           }}
           control={<Checkbox 
+            sx={{
+              '&.Mui-checked': {
+              color: '#b0643e',
+              },
+            }}
             onChange={handleCheckbox}
             value="Meloman"/>} 
           label="Meloman"
         />
 
         <FormControlLabel 
-          sx={{marginBottom:"-0.5rem"}}
-          control={<Checkbox 
+          sx={{marginBottom:"-0.5rem",}}
+          control={
+          <Checkbox 
+            sx={{
+              '&.Mui-checked': {
+              color: '#b0643e',
+              },
+              
+            }}
             onChange={handleCheckbox}
             value="Wildberries"/>} 
           label="Wildberries"
@@ -211,7 +230,8 @@ const Search = () => {
             placeholder={minPrice}
             size="small"
             sx={{width:'34%', height:'5%' }}
-          /> до <TextField
+          /> до 
+          <TextField
             id="max"
             // className="inputRounded"
             value={maxPrice}
@@ -233,8 +253,15 @@ const Search = () => {
           min={minPrice}
         />
 
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Сортировать по цене</InputLabel>
+        <FormControl fullWidth
+        sx={{
+          "& .MuiInputLabel-root": {color: '#b0643e'},//styles the label
+          "& .MuiOutlinedInput-root": {
+            "& > fieldset": { borderColor: "#b0643e" },
+          },
+        }}>
+          <InputLabel
+           id="demo-simple-select-label">Сортировать по цене</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -305,7 +332,7 @@ const Search = () => {
 
     <div className='app'>
       <div className='cont-m'>
-        <div className='logo'>
+        <div className='logo-m'>
           <Link to="/home">
             <img
               style={{width:'10%', height:'auto'}}
@@ -316,10 +343,16 @@ const Search = () => {
           {/* {<img LinkComponent={NavLink} to="/home" style={{width:'4%', height:'auto'}} src={Logo}/>} */}
         </div>
 
-      {/* Search items */}
+      {/* -----------------------------Search items---------------------------------- */}
       <div className="search">
         <form >
           <TextField
+            sx={{
+              "& .MuiInputLabel-root": {color: '#b0643e'},//styles the label
+              "& .MuiOutlinedInput-root": {
+                "& > fieldset": { borderColor: "#b0643e" },
+              },
+            }}
             id="search-bar"
             className="inputRounded"
             value={searchValue}
@@ -340,15 +373,21 @@ const Search = () => {
         </form>
       </div>
   
+    {/* -------------------------------Filters------------------------ */}
     <div className="wrapper-m">
       <div className="left-cont-m" >
-        <div className="filter"><FilterIcon/> Фильтры </div>
+        <div className="filter">Фильтры </div>
         <div class="divider div-transparent"></div>
         <div className="double-4">Выбери магазин</div>
 
         <FormControlLabel 
           sx={{marginBottom:"-0.5rem"}}
           control={<Checkbox 
+            sx={{
+              '&.Mui-checked': {
+              color: '#b0643e',
+              },
+            }}
             onChange={handleCheckbox}
             value="Flip"/>} 
           label="Flip"/>
@@ -356,12 +395,13 @@ const Search = () => {
         <FormControlLabel 
           sx={{
             marginBottom:"-0.5rem",
-            // fontFamily: 'Open Sans', sansSerif,
-            // fontFamily: 'Raleway', sansSerif, 
-            // fontFamily: 'Titillium Web', sansSerif,
-            // fontFamily: 'Uchen', serif
           }}
           control={<Checkbox 
+            sx={{
+              '&.Mui-checked': {
+              color: '#b0643e',
+              },
+            }}
             onChange={handleCheckbox}
             value="Meloman"/>} 
           label="Meloman"
@@ -370,6 +410,11 @@ const Search = () => {
         <FormControlLabel 
           sx={{marginBottom:"-0.5rem"}}
           control={<Checkbox 
+            sx={{
+              '&.Mui-checked': {
+              color: '#b0643e',
+              },
+            }}
             onChange={handleCheckbox}
             value="Wildberries"/>} 
           label="Wildberries"
@@ -410,19 +455,68 @@ const Search = () => {
           max={maxPrice}
           min={minPrice}
         />
+
+        <FormControl fullWidth
+        sx={{
+          "& .MuiInputLabel-root": {color: '#b0643e'},//styles the label
+          "& .MuiOutlinedInput-root": {
+            "& > fieldset": { borderColor: "#b0643e" },
+          },
+        }}>
+          <InputLabel
+           id="demo-simple-select-label">Сортировать по цене</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={priceSort}
+              label="Сортировать по цене"
+              onChange={handlePriceSort}
+            >
+              <MenuItem value={'increase'}>По возростанию</MenuItem>
+              <MenuItem value={'decrease'}>По убыванию</MenuItem>
+            </Select>
+          </FormControl>
+
       </div>
 
       <div className="right-cont">
         
-        {/* Listing items */}
-        <ul className="ul-1-m">
+        {/* ----------------------------Listing items------------------------- */}
+        {(priceSort === '') ? 
+         <ul className="ul-1-m">
           {books &&
-            books.map((book, i) => (
+            books
+            .map((book, i) => (
+              <ul className="ul-2-m" key={i}>
+                <Bookmob book={book} />
+              </ul>
+            ))}
+          </ul> 
+          :
+          (priceSort === 'increase') ?
+          <ul className="ul-1-m">
+          {books &&   
+            books
+            .sort((a, b) => a.price > b.price ? 1 : -1)
+            .map((book, i) => (
+              <ul className="ul-2-m" key={i}>
+                <Bookmob book={book} />
+              </ul>
+            ))}
+          </ul> 
+          :
+          <ul className="ul-1-m">
+          {books &&   
+            books
+            .sort((a, b) => a.price < b.price ? 1 : -1)
+            .map((book, i) => (
               <ul className="ul-2-m" key={i}>
                 <Bookmob book={book} />
               </ul>
             ))}
           </ul>
+        }  
+        
       </div>
       </div>
 
