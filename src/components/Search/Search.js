@@ -60,6 +60,10 @@ const Search = () => {
   };
 
   const handleSearch = e => {
+    console.log("enter pressed")
+    if (e.key === "Enter") {
+      e.target.blur();
+    }
     e.preventDefault();
     fetchHandler();
   }
