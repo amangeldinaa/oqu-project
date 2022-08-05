@@ -133,3 +133,9 @@
     justify-content: center;
     margin-bottom: 1rem;
 }
+
+.book-image {
+    margin: 1em 1em;
+    width: 70%;
+    height: 60%;
+}

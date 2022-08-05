@@ -46,3 +46,10 @@
     height: 5%;
     margin-bottom: 1rem;
 }
+
+.right-cont-m {
+    width: 82%; 
+    float: center;
+    align-items: flex-start;
+    /* border: 1px solid black; */
+}

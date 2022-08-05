@@ -21,7 +21,8 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-// import Page from 'react-page-loading-v2'
+import Button from '@mui/material/Button';
+// import Page from "react-page-loading-v2";
 
 const Search = () => {
 
@@ -33,8 +34,6 @@ const Search = () => {
   const [price, setPrice] = useState(75000);
   const [minPrice, setMinPrice] = useState(100);
   const [maxPrice, setMaxPrice] = useState(75000);
-  const [priceIncrease, setPriceIncrease] = useState(false);
-  const [priceDecrease, setPriceDecrease] = useState(false);
   const [priceSort, setPriceSort] = useState('');
 
   // console.log(process.env.REACT_APP_BACKEND_URL, 'REACT_APP_BACKEND_URL');
@@ -98,6 +97,16 @@ const Search = () => {
       e.target.blur();
     }
   };
+  
+  const handleShowAll = () => {
+    setSearchValue("");
+    setPageNumber(1);
+    // setStores([]);
+    setPrice(75000);
+    setMaxPrice(75000);
+    setPriceSort('');
+    fetchHandler();
+  }
 
   useEffect(() => {
     // console.log("stores param: ",`${stores[0]};${stores[1]};${stores[2]}`)
@@ -126,6 +135,7 @@ const Search = () => {
     <>
     {isDesktop ?  
     <div className='app'>
+      {/* <Page loader={"bar"} color={"#A9A9A9"} size={4}> */}
       <div className='cont'>
         <div className='logo'>
           <Link to="/home">
@@ -133,7 +143,7 @@ const Search = () => {
               style={{width:'4%', height:'auto'}}
               src={Logo}
               alt="logo"
-            />
+            /> 
         </Link>
           {/* {<img LinkComponent={NavLink} to="/home" style={{width:'4%', height:'auto'}} src={Logo}/>} */}
         </div>
@@ -277,11 +287,25 @@ const Search = () => {
               <MenuItem value={'decrease'}>По убыванию</MenuItem>
             </Select>
           </FormControl>
-      </div>
 
+          <Button 
+              sx={{
+                borderColor: '#b0643e',
+                color:'#b0643e',
+                borderRadius: '50px',
+                maxWidth: '100%', minWidth: '100%',
+                marginTop: '1rem'
+              }}
+              variant="outlined"
+              target="_blank" 
+              onClick={handleShowAll}
+              >Показать все книги
+            </Button>
+      </div>
+      
+      
+      {/* -------------------------Listing items-------------------------- */}
       <div className="right-cont">
-        
-        {/* -------------------------Listing items-------------------------- */}
         {(priceSort === '') ? 
          <ul className="ul-1">
           {books &&
@@ -327,6 +351,7 @@ const Search = () => {
           </div>)}
       </div>
       </div>
+      {/* </Page> */}
     </div>
     :
 
@@ -378,7 +403,7 @@ const Search = () => {
         </form>
       </div>
   
-    {/* -------------------------------Filters------------------------ */}
+    {/* -------------------------------Filters---------------------------- */}
     <div className="wrapper-m">
       <div className="left-cont-m" >
         <div className="filter">Фильтры </div>
@@ -482,9 +507,23 @@ const Search = () => {
             </Select>
           </FormControl>
 
+          <Button 
+              sx={{
+                borderColor: '#b0643e',
+                color:'#b0643e',
+                borderRadius: '50px',
+                maxWidth: '100%', minWidth: '100%',
+                marginTop: '1rem'
+              }}
+              variant="outlined"
+              target="_blank" 
+              onClick={handleShowAll}
+              >Показать все книги
+            </Button>
+            
       </div>
 
-      <div className="right-cont">
+      <div className="right-cont-m">
         
         {/* ----------------------------Listing items------------------------- */}
         {(priceSort === '') ? 
