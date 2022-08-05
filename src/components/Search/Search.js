@@ -21,13 +21,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-// import { makeStyles } from "@material-ui/core/styles";
-
-// const useStyles = makeStyles({
-//   input: {
-//     color: "blue"
-//   }
-// });
+// import Page from 'react-page-loading-v2'
 
 const Search = () => {
 
@@ -375,10 +369,10 @@ const Search = () => {
             <IconButton sx={{visibility: searchValue? "visible": "hidden"}} aria-label="search" onClick={handleClear} type="Submit">
               <ClearIcon style={{ fill: "#7f472c" }} />
             </IconButton>}}
-            onKeyUp={onEnter}
+            onKeyDown={onEnter}
           />
           
-          <IconButton aria-label="search" onClick={handleSearch} type="Submit">
+          <IconButton aria-label="search" onClick={handleSearch} onKeyUp={onEnter}>
             <SearchIcon style={{ fill: "#7f472c" }} />
           </IconButton>
         </form>
