@@ -99,6 +99,12 @@ const Search = () => {
     console.log(priceSort);
   }
 
+  const onEnter = (e) => {
+    if (e.key === "Enter") {
+      e.target.blur();
+    }
+  };
+
   useEffect(() => {
     // console.log("stores param: ",`${stores[0]};${stores[1]};${stores[2]}`)
     fetchHandler()
@@ -369,6 +375,7 @@ const Search = () => {
             <IconButton sx={{visibility: searchValue? "visible": "hidden"}} aria-label="search" onClick={handleClear} type="Submit">
               <ClearIcon style={{ fill: "#7f472c" }} />
             </IconButton>}}
+            onKeyUp={onEnter}
           />
           
           <IconButton aria-label="search" onClick={handleSearch} type="Submit">
