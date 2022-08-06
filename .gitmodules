@@ -1,0 +1,3 @@
+[submodule "scraper"]
+	path = scraper
+	url = https://github.com/aruzhan69/oqu-project.git
