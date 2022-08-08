@@ -9,7 +9,7 @@ const Bookmob = (props) => {
   return (
     <div className='card-m'>
         <div style={{width:'40%', height:'100%'}}>
-        <div className='book-image-m'>
+        {/* <div className='book-image-m'>
           <SmoothImage
             src={image}
             alt={title}
@@ -17,8 +17,8 @@ const Bookmob = (props) => {
             containerStyles={{width:'75px', height:'33%'}}
             imageStyles={{width:'75px', height:'auto'}}
           />
-      </div>
-            {/* <img className="card-img" src={image} alt={title}/>   */}
+      </div> */}
+            <img className="card-img" src={image} alt={title}/>  
         </div>
         
         <div className="second-card">
