@@ -283,7 +283,7 @@ const Search = () => {
               label="Сортировать по цене"
               onChange={handlePriceSort}
             >
-              <MenuItem value={'increase'}>По возростанию</MenuItem>
+              <MenuItem value={'increase'}>По возрастанию</MenuItem>
               <MenuItem value={'decrease'}>По убыванию</MenuItem>
             </Select>
           </FormControl>
@@ -502,7 +502,7 @@ const Search = () => {
               label="Сортировать по цене"
               onChange={handlePriceSort}
             >
-              <MenuItem value={'increase'}>По возростанию</MenuItem>
+              <MenuItem value={'increase'}>По возрастанию</MenuItem>
               <MenuItem value={'decrease'}>По убыванию</MenuItem>
             </Select>
           </FormControl>
